@@ -11,9 +11,9 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Route exact path="/" component = {Home} />
-			<Route path="/register" component = {Register} />
-			<Route path="/login" component = {Login} />
+			<Route exact path="/" component={Home} />
+			<Route path="/register" component={Register} />
+			<Route path="/login" component={Login} />
 			{/*<PrivateRoute exact path="/hacks" component={hacks} />*/}
 		</div>
 	);
