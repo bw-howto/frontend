@@ -90,7 +90,7 @@ const UserForm = ({ values, touched, errors, status }) => {
 };
 
 const FormikForm = withFormik({
-	mapPropsToValues({ name, email, password, username, creator }) {
+	mapPropsToValues({ password, username, creator }) {
 		return {
 			password: password || "",
 			username: username || "",

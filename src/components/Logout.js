@@ -3,7 +3,7 @@ import { logout } from "../actions";
 import { connect } from "react-redux";
 
 const Logout = props => {
-	handleLogout = () => {
+	const handleLogout = () => {
 		props.logout();
 		window.location.reload();
 	};
