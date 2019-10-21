@@ -5,18 +5,20 @@ import Header from "./components/Header";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
-import Home from "./components/Home";
+import LandingPage from "./components/LandingPage";
+import TopPosts from "./components/TopPosts";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Route exact path="/" component={Home} />
+			<Route exact path="/" component={LandingPage} />
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={Login} />
 			<Route path="/logout" component={Logout} />
-			{/*<PrivateRoute exact path="/hacks" component={hacks} />*/}
+			<Route exact path="/top-posts" component={TopPosts}/>
+{/*			<PrivateRoute exact path="/top-posts" component={TopPosts} />   */ }
 		</div>
 	);
 }
