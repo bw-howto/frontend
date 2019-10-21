@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Main = styled.div `
 text-align: center;
 `
-const StyledLink = styled(Link) `
+const StyledLink = styled(Link)`
 background-color: #3A405A;
 color: #DE6e4B;
 padding: 50px 100px;
