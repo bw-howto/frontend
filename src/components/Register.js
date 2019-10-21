@@ -69,7 +69,6 @@ const UserForm = ({ values, touched, errors, status }) => {
 				{touched.password && errors.password && (
 					<Error>{errors.password}</Error>
 				)}
-
 				<FormLabel>
 					Do you want to create How-To's?
 					<FormField type="checkbox" name="creator" checked={values.creator} />
