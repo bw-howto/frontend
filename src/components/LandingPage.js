@@ -23,7 +23,7 @@ border-radius: 6px;
 }
 `
 
-export default function Home() {
+export default function LandingPage() {
 
   return (
     <section>
