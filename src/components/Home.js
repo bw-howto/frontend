@@ -21,9 +21,6 @@ font-size: 30px;
 
 export default function Home() {
 
-
-// setInterval(randomGenerator, 3000);
-
   return (
     <section>
     <Main>

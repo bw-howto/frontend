@@ -19,25 +19,6 @@ const TitleLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Main = styled.div `
-display:flex;
-flex-wrap: wrap;
-justify-content:space-evenly;
-padding-bottom: 20px;
-`
-
-const StyledLink = styled(Link) `
-background-color: #35C9DD;
-color: white;
-padding: 14px 25px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-:hover{
-  background-color: #A9F3FD;
-}
-`
-
 const HeaderLink = styled(Link) `
 color: #353238;
 padding: 14px 25px;
@@ -56,7 +37,7 @@ export default function Header() {
           <TitleLink to ="/">How To Life Hacks</TitleLink>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
-          <HeaderLink to="/">Log Out</HeaderLink>
+          <HeaderLink to="/logout">Log Out</HeaderLink>
       </Title>
     </header>
   );
