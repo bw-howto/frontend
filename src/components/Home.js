@@ -28,7 +28,6 @@ export default function Home() {
     <section>
     <Main>
         <StyledLink to="/login">Login</StyledLink>
-
         <StyledLink to="/register">Register</StyledLink>
     </Main>
     </section>
