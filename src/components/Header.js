@@ -3,21 +3,28 @@ import { Link } from 'react-router-dom'
 import styled from "styled-components";
 
 const Title = styled.h1`
-  font-size: 3rem;
-  text-align: center;
-  color: white;
+  display: flex;
+  justify-content: space-around;
   background: #DE6E4B;
-  padding: 20px;
+  align-items: center;
 `;
 
+const Links =styled.div`
+text-align: center;
+`
+
 const TitleLink = styled(Link)`
-  font-size: 3rem;
+  font-size: 6rem;
   text-align: center;
   color: white;
   background: #DE6E4B;
-  padding: 20px;
   text-decoration: none;
+  font-family: 'Lato', sans-serif;
 `;
+const Light =styled.span`
+font-style: italic;
+font-weight: 100;
+`
 
 const HeaderLink = styled(Link) `
 color: #353238;
@@ -34,10 +41,12 @@ export default function Header() {
   return (
     <header className="ui centered">
       <Title>
-          <TitleLink to ="/">How To Life Hacks</TitleLink>
+          <TitleLink to ="/">How To <Light>Life Hacks</Light></TitleLink>
+          <Links>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
           <HeaderLink to="/logout">Log Out</HeaderLink>
+          </Links>
       </Title>
     </header>
   );

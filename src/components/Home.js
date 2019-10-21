@@ -6,6 +6,9 @@ const Main = styled.div `
 text-align: center;
 `
 const StyledLink = styled(Link)`
+font-family: 'Lato', sans-serif;
+font-size: 4rem;
+font-weight: 800;
 background-color: #3A405A;
 color: #DE6e4B;
 padding: 50px 100px;
@@ -13,9 +16,10 @@ text-align: center;
 text-decoration: none;
 display: inline-block;
 margin: 30px;
-font-size: 30px;
+border-radius: 6px;
 :hover{
-  background-color: #A9F3FD;
+  background-color: #DE6e4B;
+  color: #3A405A;
 }
 `
 
