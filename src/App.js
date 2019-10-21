@@ -12,10 +12,10 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Route exact path="/" component = {Home} />
-			<Route path="/register" component = {Register} />
-			<Route path="/login" component = {Login} />
-			<Route path="/logout" component = {Logout} />
+			<Route exact path="/" component={Home} />
+			<Route path="/register" component={Register} />
+			<Route path="/login" component={Login} />
+			<Route path="/logout" component={Logout} />
 			{/*<PrivateRoute exact path="/hacks" component={hacks} />*/}
 		</div>
 	);
