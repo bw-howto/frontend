@@ -10,7 +10,7 @@ const Logout = props => {
 
 	return (
 		<div>
-			<button onClick={this.handleLogout}>Logout</button>
+			<button onClick={handleLogout}>Logout</button>
 		</div>
 	);
 };
