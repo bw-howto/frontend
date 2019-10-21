@@ -53,17 +53,18 @@ const UserForm = ({ values, touched, errors, status }) => {
 		<div>
 			<MyForm>
 				<Title>Register</Title>
+				{/*
 				<FormField type="text" name="name" placeholder="Name" />
 				{touched.name && errors.name && <Error>{errors.name}</Error>}
-
+				*/}
 				<FormField type="text" name="username" placeholder="User Name" />
 				{touched.username && errors.username && (
 					<Error>{errors.username}</Error>
 				)}
-
+				{/*
 				<FormField type="text" name="email" placeholder="Email" />
 				{touched.email && errors.email && <Error>{errors.email}</Error>}
-
+				*/}
 				<FormField type="password" name="password" placeholder="Password" />
 				{touched.password && errors.password && (
 					<Error>{errors.password}</Error>
@@ -79,9 +80,7 @@ const UserForm = ({ values, touched, errors, status }) => {
 			</MyForm>
 			{users.map(user => (
 				<ul key={user.id}>
-					<p>Name: {user.name}</p>
 					<p>User Name: {user.username}</p>
-					<p>Email: {user.email}</p>
 					<p>Password: {user.password}</p>
 					<p>Creator?: {user.creator ? "true" : "false"}</p>
 				</ul>
@@ -93,8 +92,6 @@ const UserForm = ({ values, touched, errors, status }) => {
 const FormikForm = withFormik({
 	mapPropsToValues({ name, email, password, username, creator }) {
 		return {
-			name: name || "",
-			email: email || "",
 			password: password || "",
 			username: username || "",
 			creator: creator || false,
