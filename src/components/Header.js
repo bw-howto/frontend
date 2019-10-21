@@ -41,7 +41,7 @@ display: inline-block;
 const HeaderLink = styled(Link) `
 color: #353238;
 padding: 14px 25px;
-margin-left: 300px;
+margin-left: 30px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
@@ -56,6 +56,7 @@ export default function Header() {
           <TitleLink to ="/">How To Life Hacks</TitleLink>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
+          <HeaderLink to="/">Log Out</HeaderLink>
       </Title>
     </header>
   );
