@@ -10,6 +10,15 @@ const Title = styled.h1`
   padding: 20px;
 `;
 
+const TitleLink = styled(Link)`
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+  background: #DE6E4B;
+  padding: 20px;
+  text-decoration: none;
+`;
+
 const Main = styled.div `
 display:flex;
 flex-wrap: wrap;
@@ -44,7 +53,7 @@ export default function Header() {
   return (
     <header className="ui centered">
       <Title>
-          How To Life Hacks
+          <TitleLink to ="/">How To Life Hacks</TitleLink>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
       </Title>
