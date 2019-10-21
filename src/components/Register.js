@@ -121,7 +121,7 @@ const FormikForm = withFormik({
 
 	handleSubmit(values, { setStatus }) {
 		axios
-			.post("https://reqres.in/api/users/", values)
+			.post("https://how-to-michaelbaynon.herokuapp.com/api/register", values)
 			.then(res => {
 				console.log(res.data);
 				setStatus(res.data);
