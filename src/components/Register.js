@@ -78,13 +78,6 @@ const UserForm = ({ values, touched, errors, status }) => {
 
 				<Button type="submit">Submit</Button>
 			</MyForm>
-			{users.map(user => (
-				<ul key={user.id}>
-					<p>User Name: {user.username}</p>
-					<p>Password: {user.password}</p>
-					<p>Creator?: {user.creator ? "true" : "false"}</p>
-				</ul>
-			))}
 		</div>
 	);
 };
@@ -99,17 +92,10 @@ const FormikForm = withFormik({
 	},
 
 	validationSchema: Yup.object().shape({
-		name: Yup.string()
-			.min(2, "Name must be at least two letters")
-			.required("Please input a name"),
 
 		username: Yup.string()
 			.min(3, "User Name must be at least three characters")
 			.required("Please input a user name"),
-
-		email: Yup.string()
-			.email("Enter a valid email address")
-			.required("Email is a required field"),
 
 		password: Yup.string()
 			.min(5, "Password must be at least 5 characters")
