@@ -7,7 +7,7 @@ export const axiosWithAuth = () => {
 		headers: {
 			Authorization: token,
 		},
-		baseURL: // backend URL,
+		baseURL: "https://how-to-michaelbaynon.herokuapp.com/api",
 	});
 };
 
