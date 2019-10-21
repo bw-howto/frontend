@@ -2,9 +2,9 @@ import React from "react";
 import { logout } from "../actions";
 import { connect } from "react-redux";
 
-const Logout = () => {
+const Logout = props => {
 	handleLogout = () => {
-		this.props.logout();
+		props.logout();
 		window.location.reload();
 	};
 
