@@ -28,7 +28,7 @@ const TopPosts = props => {
 				});
 		};
 		getPosts();
-	}, [props.posts]);
+	}, [dispatch]);
 
 	return (
 		<Main>
