@@ -86,6 +86,7 @@ const FormikForm = withFormik({
 				localStorage.setItem("token", res.data.token);
 				if(res.data.token){
 				props.history.push("/top-posts")
+				window.location.reload();
 				}
 			})
 			.catch(err => console.log(err.response));
