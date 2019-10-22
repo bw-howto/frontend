@@ -33,9 +33,8 @@ const PostForm = props => {
 				col="5"
 				name="description"
 				value={newPost.description}
-			>
-				Enter Text...
-			</textarea>
+				placeholder="Enter Text..."
+			/>
 			<button type="submit">Add Post</button>
 		</form>
 	);
