@@ -78,13 +78,15 @@ const FormikForm = withFormik({
 		password: Yup.string().required("Password must be entered"),
 	}),
 
-	handleSubmit(values, { setStatus }) {
+	handleSubmit(values, { props }) {
 		axios
 			.post("https://how-to-michaelbaynon.herokuapp.com/api/login", values)
 			.then(res => {
 				console.log(res.data);
-				setStatus(res.data);
 				localStorage.setItem("token", res.data.token);
+				if(res.data.token){
+				props.history.push("/top-posts")
+				}
 			})
 			.catch(err => console.log(err.response));
 	},
