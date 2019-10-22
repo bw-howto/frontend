@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import PostCard from "./PostCard";
 import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { RETRIEVE_POSTS } from "../actions";
+import axiosWithAuth from "../../../Redux-Friends/friends/src/utils/axiosWithAuth";
 
 const TopPosts = props => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const getPosts = () => {
-			axios
+			axiosWithAuth()
 				.get("https://how-to-michaelbaynon.herokuapp.com/api/postList")
 				.then(response => {
 					dispatch({ type: RETRIEVE_POSTS, payload: response.data });
@@ -31,7 +31,6 @@ const TopPosts = props => {
 		</div>
 	);
 };
-
 
 const mapStateToProps = state => {
 	return {
