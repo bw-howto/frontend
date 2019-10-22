@@ -85,7 +85,7 @@ const FormikForm = withFormik({
 		return {
 			password: password || "",
 			username: username || "",
-			creator: accountType || "",
+			accountType: accountType || "",
 		};
 	},
 
