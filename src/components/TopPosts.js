@@ -3,7 +3,7 @@ import PostCard from "./PostCard";
 import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { RETRIEVE_POSTS } from "../actions";
-import axiosWithAuth from "../../../Redux-Friends/friends/src/utils/axiosWithAuth";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const TopPosts = props => {
 	const dispatch = useDispatch();
