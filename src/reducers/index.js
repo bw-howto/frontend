@@ -8,6 +8,7 @@ import {
 	UPDATE_FAILED,
 	DELETE_START,
 	DELETE_SUCCESS,
+	SEARCH_SUCCESS,
 } from "../actions";
 
 const initialState = {
@@ -77,6 +78,14 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				deletingPost: false,
 				posts: state.posts.filter(post => post.id !== action.payload),
+			};
+
+		case SEARCH_SUCCESS:
+			return {
+				...state,
+				posts: state.posts.filter(post =>
+					post.postName.includes(action.payload),
+				),
 			};
 	}
 };
