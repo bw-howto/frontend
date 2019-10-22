@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PostCard from "./PostCard"
 
-import { Link } from 'react-router-dom';
-
 const TopPosts = () => {
   const [posts, setPosts] = useState([])
   useEffect(() => {
