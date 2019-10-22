@@ -26,7 +26,7 @@ const TopPosts = props => {
 		<div>
 			<p>test</p>
 			{props.posts.map(post => (
-				<PostCard />
+				<PostCard post={post} />
 			))}
 		</div>
 	);
