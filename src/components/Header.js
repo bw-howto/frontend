@@ -38,6 +38,21 @@ display: inline-block;
 `
 
 export default function Header() {
+if (localStorage.token){
+  return (
+    <header className="ui centered">
+      <Title>
+          <TitleLink to ="/">How To <Light>Life Hacks</Light></TitleLink>
+          <Links>
+          <HeaderLink to="/top-posts">Top Post</HeaderLink>
+          <HeaderLink to="/my-posts">My Posts</HeaderLink>
+          <HeaderLink to="/create-posts">Create</HeaderLink>
+          <HeaderLink to="/logout">Log Out</HeaderLink>
+          </Links>
+      </Title>
+    </header>
+  );
+} else {
   return (
     <header className="ui centered">
       <Title>
@@ -45,9 +60,9 @@ export default function Header() {
           <Links>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
-          <HeaderLink to="/logout">Log Out</HeaderLink>
           </Links>
       </Title>
     </header>
   );
+}
 }
