@@ -28,7 +28,7 @@ export const addPost = post => dispatch => {
 	axiosWithAuth()
 		.post("/createPost", post)
 		.then(res => {
-			dispatch({ type: POST_SUCCESS, payload: res.data });
+			dispatch({ type: POST_SUCCESS, payload: post });
 		})
 		.catch(err => {
 			dispatch({ type: POST_FAILED, payload: err.response });
@@ -43,7 +43,7 @@ export const UPDATE_FAILED = "UPDATE_FAILED";
 export const updatePost = (id, changes) => dispatch => {
 	dispatch({ type: UPDATING_START });
 	axiosWithAuth()
-		.put(`${id}`, changes)
+		.put(`/updatePost/${id}`, changes)
 		.then(res => {
 			dispatch({ type: UPDATE_SUCCESS, payload: changes });
 		})

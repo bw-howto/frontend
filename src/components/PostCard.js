@@ -9,9 +9,10 @@ function PostCard(props) {
 
 	return (
 		<div>
+			<h1>{props.post.postName}</h1>
+			<p>{props.post.description}</p>
 			<button onClick={() => deletePost(props.post.id)}>Delete</button>
 			<button>Edit</button>
-			<p> Hi there</p>
 		</div>
 	);
 }

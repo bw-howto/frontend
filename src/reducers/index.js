@@ -6,7 +6,10 @@ import {
 	UPDATING_START,
 	UPDATE_SUCCESS,
 	UPDATE_FAILED,
+	DELETE_START,
+	DELETE_SUCCESS,
 } from "../actions";
+import { stat } from "fs";
 
 const initialState = {
 	posts: [],
@@ -56,6 +59,17 @@ export const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				error: action.payload,
+			};
+		case DELETE_START:
+			return {
+				...state,
+				deletingPost: true,
+			};
+		case DELETE_SUCCESS:
+			return {
+				...state,
+				deletingPost: false,
+				posts: state.posts.filter(post => post.id !== action.payload),
 			};
 	}
 };

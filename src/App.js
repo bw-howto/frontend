@@ -17,8 +17,7 @@ function App() {
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={Login} />
 			<Route path="/logout" component={Logout} />
-			<Route exact path="/top-posts" component={TopPosts}/>
-			<PrivateRoute exact path="/top-posts" component={TopPosts} />  
+			<PrivateRoute exact path="/top-posts" component={TopPosts} />
 		</div>
 	);
 }
