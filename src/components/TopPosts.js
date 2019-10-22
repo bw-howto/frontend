@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import PostCard from "./PostCard";
 import { connect, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { RETRIEVE_POSTS } from "../actions";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import PostForm from "./PostForm";
+import styled from "styled-components";
+
+const Main = styled.div `
+display:flex;
+flex-wrap: wrap;
+justify-content:space-evenly;
+padding-bottom: 20px;
+`
 
 const TopPosts = props => {
 	const dispatch = useDispatch();
@@ -25,12 +31,11 @@ const TopPosts = props => {
 	}, [dispatch]);
 
 	return (
-		<div>
-			<PostForm />
+		<Main>
 			{props.posts.map(post => (
 				<PostCard post={post} key={post.id} />
 			))}
-		</div>
+		</Main>
 	);
 };
 

@@ -40,11 +40,7 @@ const Error = styled.p`
 
 
 const UserForm = ({ values, touched, errors, status }) => {
-	const [users, setUsers] = useState([]);
 
-	useEffect(() => {
-		status && setUsers(users => [...users, status]);
-	}, [status]);
 
 	return (
 		<div>

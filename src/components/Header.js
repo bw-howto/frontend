@@ -44,7 +44,7 @@ if (localStorage.token){
       <Title>
           <TitleLink to ="/">How To <Light>Life Hacks</Light></TitleLink>
           <Links>
-          <HeaderLink to="/top-posts">Top Post</HeaderLink>
+          <HeaderLink to="/top-posts">Top Posts</HeaderLink>
           <HeaderLink to="/my-posts">My Posts</HeaderLink>
           <HeaderLink to="/create-posts">Create</HeaderLink>
           <HeaderLink to="/logout">Log Out</HeaderLink>
