@@ -9,7 +9,6 @@ import {
 	DELETE_START,
 	DELETE_SUCCESS,
 } from "../actions";
-import { stat } from "fs";
 
 const initialState = {
 	posts: [],
@@ -52,7 +51,13 @@ export const reducer = (state = initialState, action) => {
 		case UPDATE_SUCCESS:
 			return {
 				...state,
-				posts: [...state.posts, action.payload],
+				posts: state.posts.map(post => {
+					if (post.id === action.payload.id) {
+						return action.payload;
+					} else {
+						return post;
+					}
+				}),
 				updatingPost: false,
 			};
 		case UPDATE_FAILED:

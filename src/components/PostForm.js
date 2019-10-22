@@ -14,7 +14,11 @@ const PostForm = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		props.addPost(newPost);
+		props.addPost(newPost, redirect);
+	};
+
+	const redirect = () => {
+		props.history.push("/top-posts");
 	};
 
 	return (
