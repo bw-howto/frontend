@@ -5,12 +5,12 @@ import { RETRIEVE_POSTS } from "../actions";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
 
-const Main = styled.div `
-display:flex;
-flex-wrap: wrap;
-justify-content:space-evenly;
-padding-bottom: 20px;
-`
+const Main = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding-bottom: 20px;
+`;
 
 const TopPosts = props => {
 	const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const TopPosts = props => {
 				});
 		};
 		getPosts();
-	}, [dispatch]);
+	}, [props.posts]);
 
 	return (
 		<Main>
