@@ -32,6 +32,7 @@ const TopPosts = props => {
 	);
 };
 
+
 const mapStateToProps = state => {
 	return {
 		posts: state.posts,
