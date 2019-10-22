@@ -3,6 +3,9 @@ import {
 	POST_SUCCESS,
 	POST_FAILED,
 	RETRIEVE_POSTS,
+	UPDATING_START,
+	UPDATE_SUCCESS,
+	UPDATE_FAILED,
 } from "../actions";
 
 const initialState = {
@@ -34,6 +37,22 @@ export const reducer = (state = initialState, action) => {
 				addingPost: false,
 			};
 		case POST_FAILED:
+			return {
+				...state,
+				error: action.payload,
+			};
+		case UPDATING_START:
+			return {
+				...state,
+				updatingPost: true,
+			};
+		case UPDATE_SUCCESS:
+			return {
+				...state,
+				posts: [...state.posts, action.payload],
+				updatingPost: false,
+			};
+		case UPDATE_FAILED:
 			return {
 				...state,
 				error: action.payload,
