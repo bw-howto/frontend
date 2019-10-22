@@ -12,6 +12,7 @@ import {
 
 const initialState = {
 	posts: [],
+	filteredPosts: [],
 	addingPost: false,
 	deletingPost: false,
 	updatingPost: false,
@@ -26,6 +27,7 @@ export const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				posts: action.payload,
+				filteredPosts: action.payload,
 			};
 		case POST_START:
 			return {
