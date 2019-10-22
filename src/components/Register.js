@@ -28,11 +28,6 @@ const FormField = styled(Field)`
 	margin: 10px;
 `;
 
-const FormLabel = styled.label`
-	padding: 10px;
-	margin: 10px;
-`;
-
 const Title = styled.h1`
 	padding: 1px;
 	margin: 1px;
@@ -71,12 +66,14 @@ const UserForm = ({ values, touched, errors, status }) => {
 				{touched.password && errors.password && (
 					<Error>{errors.password}</Error>
 				)}
-				<FormLabel>
-					Do you want to create How-To's?
-					<FormField type="checkbox" name="creator" checked={values.creator} />
-					{touched.tos && errors.tos && <Error>{errors.tos}</Error>}
-				</FormLabel>
 
+				<Field component="select" name="accountType">
+					<option value="" label="Select an account type" />
+					<option value="user" label="User" />
+					<option value="creator" label="Creator" />
+				</Field>
+				{touched.accountType && errors.accountType && <Error>{errors.accountType}</Error>}
+				
 				<Button type="submit">Submit</Button>
 			</MyForm>
 		</div>
@@ -84,11 +81,11 @@ const UserForm = ({ values, touched, errors, status }) => {
 };
 
 const FormikForm = withFormik({
-	mapPropsToValues({ password, username, creator }) {
+	mapPropsToValues({ password, username, accountType }) {
 		return {
 			password: password || "",
 			username: username || "",
-			creator: creator || false,
+			creator: accountType || "",
 		};
 	},
 
@@ -101,6 +98,10 @@ const FormikForm = withFormik({
 		password: Yup.string()
 			.min(5, "Password must be at least 5 characters")
 			.required("Password must be entered"),
+
+			accountType: Yup.string()
+			.oneOf(["user", "creator"])
+			.required("Please select one")
 	}),
 
 	handleSubmit(values, { setStatus }) {
