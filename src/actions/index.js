@@ -60,7 +60,7 @@ export const DELETE_FAILED = "DELETE_FAILED";
 export const deletePost = id => dispatch => {
 	dispatch({ type: DELETE_START });
 	axiosWithAuth()
-		.delete(`${id}`)
+		.delete(`/deletePost/${id}`)
 		.then(res => {
 			dispatch({ type: DELETE_SUCCESS, payload: id });
 		})
