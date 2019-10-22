@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Search from "./Search";
 
 const Title = styled.h1`
 	display: flex;
@@ -51,7 +50,6 @@ export default function Header() {
 						<HeaderLink to="/my-posts">My Posts</HeaderLink>
 						<HeaderLink to="/create-posts">Create</HeaderLink>
 						<HeaderLink to="/logout">Log Out</HeaderLink>
-						<Search />
 					</Links>
 				</Title>
 			</header>

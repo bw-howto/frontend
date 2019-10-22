@@ -53,8 +53,10 @@ function PostCard(props) {
 		props.deletePost(id);
 	};
 	const [count, setCount] = useState(0);
-	const addNumber = () => {
+
+	const addNumber = (id) => {
 		setCount(count => count + 1);
+		window.localStorage.setItem('likes'+ id, count);
 	};
 
 	const [updatedPost, setUpdatedPost] = useState({
@@ -106,9 +108,9 @@ function PostCard(props) {
 				<Title>{props.post.postName}</Title>
 				<Paragraph>{props.post.description}</Paragraph>
 				<p>
-					Likes <span>{count}</span>
+					Likes <span>{window.localStorage.getItem('likes'+ props.post.id)}</span>
 				</p>
-				<Button onClick={() => addNumber()}>Like</Button>
+				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
 				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
 				<Button onClick={() => setIsEditing(true)}>Edit</Button>
 			</Card>
