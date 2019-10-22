@@ -104,12 +104,12 @@ const FormikForm = withFormik({
 			.required("Please select one")
 	}),
 
-	handleSubmit(values, { setStatus }) {
+	handleSubmit(values, { props }) {
 		axios
 			.post("https://how-to-michaelbaynon.herokuapp.com/api/register", values)
 			.then(res => {
 				console.log(res.data);
-				setStatus(res.data);
+				props.history.push("/login")
 			})
 			.catch(err => console.log(err.response));
 	},
