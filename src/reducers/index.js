@@ -1,4 +1,9 @@
-import { POST_START, POST_SUCCESS, POST_FAILED } from "../actions";
+import {
+	POST_START,
+	POST_SUCCESS,
+	POST_FAILED,
+	RETRIEVE_POSTS,
+} from "../actions";
 
 const initialState = {
 	posts: [],
@@ -12,6 +17,11 @@ export const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		default:
 			return state;
+		case RETRIEVE_POSTS:
+			return {
+				...state,
+				posts: action.payload,
+			};
 		case POST_START:
 			return {
 				...state,

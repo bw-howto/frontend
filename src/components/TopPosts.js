@@ -1,34 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import PostCard from "./PostCard"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import PostCard from "./PostCard";
+import { connect, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { RETRIEVE_POSTS } from "../actions";
 
-const TopPosts = () => {
-  const [posts, setPosts] = useState([])
-  useEffect(() => {
-    const getPosts = () => {
-      axios
-        .get('https://how-to-michaelbaynon.herokuapp.com/api/postList')
-        .then(response => {
-            setPosts(response);
-            console.log(response);
-        })
-        .catch(error => {
-          console.error('oh no', error);
-        });
-    } 
-    getPosts();
-  }, []);
-  
-  return (
-    <div>
-        <p>test</p>
-      {posts.map(post => (
-        <PostCard/>
-      ))}
-    </div>
-  );
-}
+const TopPosts = props => {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		const getPosts = () => {
+			axios
+				.get("https://how-to-michaelbaynon.herokuapp.com/api/postList")
+				.then(response => {
+					dispatch({ type: RETRIEVE_POSTS, payload: response.data });
+					console.log(response);
+				})
+				.catch(error => {
+					console.error("oh no", error);
+				});
+		};
+		getPosts();
+	}, [dispatch]);
+
+	return (
+		<div>
+			<p>test</p>
+			{props.posts.map(post => (
+				<PostCard />
+			))}
+		</div>
+	);
+};
 
 
+const mapStateToProps = state => {
+	return {
+		posts: state.posts,
+	};
+};
 
-export default TopPosts;
+export default connect(
+	mapStateToProps,
+	{},
+)(TopPosts);
