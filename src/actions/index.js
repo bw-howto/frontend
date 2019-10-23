@@ -9,13 +9,7 @@ export const logout = () => dispatch => {
 };
 
 // Search actions
-export const SEARCH_START = "SEARCH_START";
 export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
-export const SEARCH_FAILED = "SEARCH_FAILED";
-
-export const search = item => dispatch => {
-	// code...
-};
 
 // Post actions
 export const RETRIEVE_POSTS = "RETRIEVE_POSTS";

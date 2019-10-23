@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { SEARCH_SUCCESS } from "../actions";
 
-// search logic goes here.
-// search logic is array.filter(arr.includes(item))
-
 const Search = props => {
 	const dispatch = useDispatch();
 	const [searchTerm, setSearchTerm] = useState({
@@ -12,7 +9,6 @@ const Search = props => {
 	});
 
 	const handleChange = e => {
-		console.log("searchTerm", searchTerm);
 		setSearchTerm({ [e.target.name]: e.target.value });
 		props.filteredPosts.filter(post => {
 			const filter = e.target.value;
