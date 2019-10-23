@@ -37,13 +37,12 @@ const Error = styled.p`
 	color: red;
 `;
 
-const UserForm = ({ values, touched, errors, status, handleSubmit, login }) => {
+const UserForm = ({touched, errors, status, handleSubmit }) => {
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
 		status && setUsers(users => [...users, status]);
 	}, [status]);
-
 	return (
 		<div>
 			<MyForm onSubmit={handleSubmit}>

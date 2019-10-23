@@ -17,7 +17,7 @@ const Card = styled.div`
 `;
 
 const Title = styled.h1`
-	margin: 0px;
+	margin: 10px;
 	font-size: 2.5rem;
 	color: #353238;
 `;
@@ -52,9 +52,11 @@ function PostCard(props) {
 	const deletePost = id => {
 		props.deletePost(id);
 	};
-	const [count, setCount] = useState(0);
-	const addNumber = () => {
-		setCount(count => count + 1);
+	const [count, setCount] = useState(Number(localStorage.getItem('likes'+ props.post.id)));
+
+	const addNumber = (id) => {
+		setCount(count => Number(localStorage.getItem('likes'+ id)) + 1);
+		window.localStorage.setItem('likes'+ id, count);
 	};
 
 	const [updatedPost, setUpdatedPost] = useState({
@@ -106,9 +108,9 @@ function PostCard(props) {
 				<Title>{props.post.postName}</Title>
 				<Paragraph>{props.post.description}</Paragraph>
 				<p>
-					Likes <span>{count}</span>
+					Likes <span>{window.localStorage.getItem('likes'+ props.post.id)}</span>
 				</p>
-				<Button onClick={() => addNumber()}>Like</Button>
+				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
 				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
 				<Button onClick={() => setIsEditing(true)}>Edit</Button>
 			</Card>

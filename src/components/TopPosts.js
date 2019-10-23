@@ -4,12 +4,18 @@ import { connect, useDispatch } from "react-redux";
 import { RETRIEVE_POSTS } from "../actions";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
+import Search from "./Search";
+
 
 const Main = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	padding-bottom: 20px;
+`;
+
+const Holder = styled.div`
+
 `;
 
 const TopPosts = props => {
@@ -31,11 +37,14 @@ const TopPosts = props => {
 	}, [dispatch]);
 
 	return (
+		<Holder>
+		<Search />
 		<Main>
 			{props.filteredPosts.map(post => (
 				<PostCard post={post} key={post.id} />
 			))}
 		</Main>
+		</Holder>
 	);
 };
 
