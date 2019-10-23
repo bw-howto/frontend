@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
-import { deletePost, updatePost, IS_EDITING } from "../actions";
+import { connect } from "react-redux";
+import { deletePost, updatePost } from "../actions";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -47,16 +47,16 @@ const Button = styled.button`
 `;
 
 function PostCard(props) {
-	const dispatch = useDispatch();
-
 	const deletePost = id => {
 		props.deletePost(id);
 	};
-	const [count, setCount] = useState(Number(localStorage.getItem('likes'+ props.post.id)));
+	const [count, setCount] = useState(
+		Number(localStorage.getItem("likes" + props.post.id)),
+	);
 
-	const addNumber = (id) => {
-		setCount(count => Number(localStorage.getItem('likes'+ id)) + 1);
-		window.localStorage.setItem('likes'+ id, count);
+	const addNumber = id => {
+		setCount(count => Number(localStorage.getItem("likes" + id)) + 1);
+		window.localStorage.setItem("likes" + id, count);
 	};
 
 	const [updatedPost, setUpdatedPost] = useState({
@@ -108,7 +108,8 @@ function PostCard(props) {
 				<Title>{props.post.postName}</Title>
 				<Paragraph>{props.post.description}</Paragraph>
 				<p>
-					Likes <span>{window.localStorage.getItem('likes'+ props.post.id)}</span>
+					Likes{" "}
+					<span>{window.localStorage.getItem("likes" + props.post.id)}</span>
 				</p>
 				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
 				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
