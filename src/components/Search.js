@@ -8,8 +8,8 @@ const Form = styled.form`
 	justify-content: center;
 `;
 
-const FormBackground =styled.div`
-background: #de6e4b;
+const FormBackground = styled.div`
+	background: #de6e4b;
 	width: 380;
 	height: 45px;
 	display: flex;
@@ -51,8 +51,8 @@ const Search = props => {
 	const handleChange = e => {
 		setSearchTerm({ [e.target.name]: e.target.value });
 		props.filteredPosts.filter(post => {
-			const filter = e.target.value;
-			post.postName.includes(filter);
+			const filter = e.target.value.toLowerCase();
+			post.postName.toLowerCase().includes(filter);
 			dispatch({ type: SEARCH_SUCCESS, payload: filter });
 		});
 	};
@@ -64,15 +64,15 @@ const Search = props => {
 	return (
 		<Form onSubmit={handleSubmit}>
 			<FormBackground>
-			<SearchWord htmlFor="searchTerm">Search:</SearchWord>
-			<input
-				type="text"
-				onChange={e => handleChange(e)}
-				value={searchTerm.searchTerm}
-				name="searchTerm"
-				placeholder="Search..."
-			/>
-			<Button type="submit">Search</Button>
+				<SearchWord htmlFor="searchTerm">Search:</SearchWord>
+				<input
+					type="text"
+					onChange={e => handleChange(e)}
+					value={searchTerm.searchTerm}
+					name="searchTerm"
+					placeholder="Search..."
+				/>
+				<Button type="submit">Search</Button>
 			</FormBackground>
 		</Form>
 	);

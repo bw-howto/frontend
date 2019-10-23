@@ -55,11 +55,12 @@ export const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				posts: state.posts.map(post => {
-					if (post.id === action.payload.id) {
-						return action.payload;
-					} else {
-						return post;
-					}
+					console.log(
+						"post.id & action.payload.id",
+						post.id,
+						action.payload.id,
+					);
+					return post.id === action.payload.id ? action.payload : post;
 				}),
 				updatingPost: false,
 			};
@@ -78,13 +79,15 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				deletingPost: false,
 				posts: state.posts.filter(post => post.id !== action.payload),
+				filteredPosts: state.posts.filter(post => post.id !== action.payload),
 			};
 
 		case SEARCH_SUCCESS:
 			return {
 				...state,
-				filteredPosts: state.filteredPosts.filter(post =>
-					post.postName.includes(action.payload),
+				posts: [...state.posts],
+				filteredPosts: state.posts.filter(post =>
+					post.postName.toLowerCase().includes(action.payload),
 				),
 			};
 	}

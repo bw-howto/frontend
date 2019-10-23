@@ -40,7 +40,11 @@ export const updatePost = (id, changes) => dispatch => {
 	axiosWithAuth()
 		.put(`/updatePost/${id}`, changes)
 		.then(res => {
-			dispatch({ type: UPDATE_SUCCESS, payload: changes });
+			const newObj = {
+				...changes,
+				id: id,
+			};
+			dispatch({ type: UPDATE_SUCCESS, payload: newObj });
 		})
 		.catch(err => {
 			dispatch({ type: UPDATE_FAILED, payload: err.response });

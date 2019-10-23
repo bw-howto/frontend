@@ -68,8 +68,13 @@ function PostCard(props) {
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		console.log("post id inside submit", props.post.id, updatedPost);
 		props.updatePost(props.post.id, updatedPost);
 		setIsEditing(false);
+	};
+
+	const handleChange = e => {
+		setUpdatedPost({ ...updatedPost, [e.target.name]: e.target.value });
 	};
 
 	// Create state for isEditing
@@ -83,17 +88,13 @@ function PostCard(props) {
 				<input
 					type="text"
 					name="postName"
-					onChange={e =>
-						setUpdatedPost({ ...updatedPost, [e.target.name]: e.target.value })
-					}
+					onChange={handleChange}
 					placeholder="Enter Title..."
 					value={updatedPost.postName}
 				/>
 				<label htmlFor="description">Post Body:</label>
 				<textarea
-					onChange={e =>
-						setUpdatedPost({ ...updatedPost, [e.target.name]: e.target.value })
-					}
+					onChange={handleChange}
 					col="5"
 					name="description"
 					value={updatedPost.description}
@@ -113,7 +114,14 @@ function PostCard(props) {
 				</p>
 				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
 				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
-				<Button onClick={() => setIsEditing(true)}>Edit</Button>
+				<Button
+					onClick={() => {
+						console.log("post id", props.post.id);
+						setIsEditing(true);
+					}}
+				>
+					Edit
+				</Button>
 			</Card>
 		);
 	}
