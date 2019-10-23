@@ -57,6 +57,9 @@ export const reducer = (state = initialState, action) => {
 				posts: state.posts.map(post =>
 					post.id === action.payload.id ? action.payload : post,
 				),
+				filteredPosts: state.posts.map(post =>
+					post.id === action.payload.id ? action.payload : post,
+				),
 				updatingPost: false,
 			};
 		case UPDATE_FAILED:
