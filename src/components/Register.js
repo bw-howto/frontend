@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -12,15 +12,27 @@ const MyForm = styled(Form)`
 	margin: 50px auto;
 	padding: 25px;
 	width: 25%;
-	background: #f7ef99;
+	background: #3a405a;
+	border-radius: 6px;
+	:hover {
+		transition: 0.3s;
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
 `;
 
 const Button = styled.button`
 	width: 200px;
 	height: 35px;
-	background-color: #f78e69;
+	background-color: #de6e4b;
 	color: #fff;
 	border-radius: 3px;
+	font-size: 1rem;
+	font-weight: 800;
+	margin-top: 25px;
+	:hover {
+		background-color: #de6e4b;
+		color: #3a405a;
+	}
 `;
 
 const FormField = styled(Field)`
@@ -31,13 +43,22 @@ const FormField = styled(Field)`
 const Title = styled.h1`
 	padding: 1px;
 	margin: 1px;
-	color: #5d675b;
+	color: #de6e4b;
 `;
 const Error = styled.p`
 	color: red;
+	margin: 0;
 `;
 
+
+
 const UserForm = ({ values, touched, errors, status }) => {
+	const [users, setUsers] = useState([]);
+
+	useEffect(() => {
+		status && setUsers(users => [...users, status]);
+	}, [status]);
+
 	return (
 		<div>
 			<MyForm>
@@ -64,10 +85,8 @@ const UserForm = ({ values, touched, errors, status }) => {
 					<option value="user" label="User" />
 					<option value="creator" label="Creator" />
 				</Field>
-				{touched.accountType && errors.accountType && (
-					<Error>{errors.accountType}</Error>
-				)}
-
+				{touched.accountType && errors.accountType && <Error>{errors.accountType}</Error>}
+				
 				<Button type="submit">Submit</Button>
 			</MyForm>
 		</div>
@@ -84,6 +103,7 @@ const FormikForm = withFormik({
 	},
 
 	validationSchema: Yup.object().shape({
+
 		username: Yup.string()
 			.min(3, "User Name must be at least three characters")
 			.required("Please input a user name"),
@@ -92,9 +112,9 @@ const FormikForm = withFormik({
 			.min(5, "Password must be at least 5 characters")
 			.required("Password must be entered"),
 
-		accountType: Yup.string()
+			accountType: Yup.string()
 			.oneOf(["user", "creator"])
-			.required("Please select one"),
+			.required("Please select one")
 	}),
 
 	handleSubmit(values, { props }) {
@@ -102,7 +122,7 @@ const FormikForm = withFormik({
 			.post("https://how-to-michaelbaynon.herokuapp.com/api/register", values)
 			.then(res => {
 				console.log(res.data);
-				props.history.push("/login");
+				props.history.push("/login")
 			})
 			.catch(err => console.log(err.response));
 	},

@@ -12,15 +12,27 @@ const MyForm = styled(Form)`
 	margin: 50px auto;
 	padding: 25px;
 	width: 25%;
-	background: #f7ef99;
+	background: #3a405a;
+	border-radius: 6px;
+	:hover {
+		transition: 0.3s;
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
 `;
 
 const Button = styled.button`
 	width: 200px;
 	height: 35px;
-	background-color: #f78e69;
+	background-color: #de6e4b;
 	color: #fff;
 	border-radius: 3px;
+	font-size: 1rem;
+	font-weight: 800;
+	margin-top: 25px;
+	:hover {
+		background-color: #de6e4b;
+		color: #3a405a;
+	}
 `;
 
 const FormField = styled(Field)`
@@ -31,10 +43,11 @@ const FormField = styled(Field)`
 const Title = styled.h1`
 	padding: 1px;
 	margin: 1px;
-	color: #5d675b;
+	color: #de6e4b;
 `;
 const Error = styled.p`
 	color: red;
+	margin: 0;
 `;
 
 const UserForm = ({ touched, errors, status, handleSubmit }) => {

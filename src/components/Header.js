@@ -48,7 +48,6 @@ export default function Header() {
 					</TitleLink>
 					<Links>
 						<HeaderLink to="/top-posts">Top Posts</HeaderLink>
-						<HeaderLink to="/my-posts">My Posts</HeaderLink>
 						<HeaderLink to="/create-posts">Create</HeaderLink>
 						<HeaderLink to="/logout">Log Out</HeaderLink>
 					</Links>
