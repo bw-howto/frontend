@@ -37,12 +37,12 @@ const Error = styled.p`
 	color: red;
 `;
 
-const UserForm = ({touched, errors, status, handleSubmit }) => {
+const UserForm = ({ touched, errors, status, handleSubmit }) => {
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
-		status && setUsers(users => [...users, status]);
-	}, [status]);
+		status && setUsers([...users, status]);
+	}, [status, users]);
 	return (
 		<div>
 			<MyForm onSubmit={handleSubmit}>
@@ -83,9 +83,9 @@ const FormikForm = withFormik({
 			.then(res => {
 				console.log(res.data);
 				localStorage.setItem("token", res.data.token);
-				if(res.data.token){
-				props.history.push("/top-posts")
-				window.location.reload();
+				if (res.data.token) {
+					props.history.push("/top-posts");
+					window.location.reload();
 				}
 			})
 			.catch(err => console.log(err.response));
