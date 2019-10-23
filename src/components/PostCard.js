@@ -190,7 +190,7 @@ function PostCard(props) {
 					placeholder="Enter Text..."
 				/>
 				</FormBackground2>
-			<Button2 type="submit">Add Post</Button2>
+			<Button2 type="submit">Update Post</Button2>
 		</Form>
 		);
 	} else {
@@ -204,7 +204,7 @@ function PostCard(props) {
 				</p>
 				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
 				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
-				<Button onClick={() => etIsEditing(true)}>Edit</Button>
+				<Button onClick={() => setIsEditing(true)}>Edit</Button>
 			</Card>
 		);
 	}
