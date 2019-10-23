@@ -8,7 +8,7 @@ const Card = styled.div`
 	background: #f9dec9;
 	border: 5px solid #3a405a;
 	transition: 0.3s;
-	width: auto;
+	width: 40%;
 	padding: 10px 20px 10px 20px;
 	margin: 20px;
 	:hover {
