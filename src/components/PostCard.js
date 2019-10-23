@@ -46,6 +46,93 @@ const Button = styled.button`
 	}
 `;
 
+const Form = styled.form`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items:center;
+`;
+const FormBackground =styled.div`
+	background: #3a405a;
+	width: 30%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 10px;
+	border-radius: 6px;
+	margin: 30px;
+`;
+const PostTitle = styled.label`
+	font-size: 1.5rem;
+	text-align: center;
+	color: white;
+	font-weight: 600;
+	font-family: "Lato", sans-serif;
+	padding-right: 20px;
+	width: auto;
+`;
+const TitleInput = styled.input`
+height: 30px;
+width: 300px;
+padding: 12px 20px;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 4px;
+background-color: #f8f8f8;
+font-size: 16px;
+resize: none;
+`;
+
+const FormBackground2 =styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background: #3a405a;
+	width: 40%;
+	height: 240px;
+	padding: 10px;
+	border-radius: 6px;
+	margin-bottom: 30px;
+`;
+const PostTitle2 = styled.label`
+	font-size: 1.5rem;
+	text-align: center;
+	color: white;
+	font-weight: 600;
+	font-family: "Lato", sans-serif;
+	padding: 10px;
+`;
+const TitleInput2 = styled.textarea`
+width: 90%;
+height: 150px;
+padding: 12px 20px;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 4px;
+background-color: #f8f8f8;
+font-size: 16px;
+resize: none;
+`;
+
+const Button2 = styled.button`
+	font-family: "Lato", sans-serif;
+	font-size: 1rem;
+	font-weight: 800;
+	background-color: #de6e4b;
+	color: #3a405a;
+	text-align: center;
+	text-decoration: none;
+	margin: 10px;
+	padding: 25px 50px;
+	border-radius: 6px;
+	:hover {
+		color: white;
+	}
+`;
+
+
 function PostCard(props) {
 	const deletePost = id => {
 		props.deletePost(id);
@@ -83,25 +170,29 @@ function PostCard(props) {
 
 	if (isEditing) {
 		return (
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="postName">Post Title:</label>
-				<input
+			<Form onSubmit={handleSubmit}>
+			<FormBackground>
+			<PostTitle htmlFor="postName">Post Title:</PostTitle>
+			<TitleInput
 					type="text"
 					name="postName"
 					onChange={handleChange}
 					placeholder="Enter Title..."
 					value={updatedPost.postName}
 				/>
-				<label htmlFor="description">Post Body:</label>
-				<textarea
+				</FormBackground>
+			<FormBackground2>
+			<PostTitle2 htmlFor="description">Post Body:</PostTitle2>
+			<TitleInput2
 					onChange={handleChange}
 					col="5"
 					name="description"
 					value={updatedPost.description}
 					placeholder="Enter Text..."
 				/>
-				<button type="submit">Update Post</button>
-			</form>
+				</FormBackground2>
+			<Button2 type="submit">Add Post</Button2>
+		</Form>
 		);
 	} else {
 		return (
