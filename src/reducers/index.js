@@ -79,11 +79,13 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				deletingPost: false,
 				posts: state.posts.filter(post => post.id !== action.payload),
+				filteredPosts: state.posts.filter(post => post.id !== action.payload),
 			};
 
 		case SEARCH_SUCCESS:
 			return {
 				...state,
+				posts: [...state.posts],
 				filteredPosts: state.posts.filter(post =>
 					post.postName.toLowerCase().includes(action.payload),
 				),
