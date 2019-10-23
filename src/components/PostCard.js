@@ -17,7 +17,7 @@ const Card = styled.div`
 `;
 
 const Title = styled.h1`
-	margin: 0px;
+	margin: 10px;
 	font-size: 2.5rem;
 	color: #353238;
 `;
@@ -52,10 +52,10 @@ function PostCard(props) {
 	const deletePost = id => {
 		props.deletePost(id);
 	};
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(Number(localStorage.getItem('likes'+ props.post.id)));
 
 	const addNumber = (id) => {
-		setCount(count => count + 1);
+		setCount(count => Number(localStorage.getItem('likes'+ id)) + 1);
 		window.localStorage.setItem('likes'+ id, count);
 	};
 

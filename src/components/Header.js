@@ -9,6 +9,7 @@ const Title = styled.h1`
 	align-items: center;
 `;
 
+
 const Links = styled.div`
 	text-align: center;
 `;
