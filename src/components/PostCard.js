@@ -68,7 +68,6 @@ function PostCard(props) {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log("post id inside submit", props.post.id, updatedPost);
 		props.updatePost(props.post.id, updatedPost);
 		setIsEditing(false);
 	};
@@ -114,14 +113,7 @@ function PostCard(props) {
 				</p>
 				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
 				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
-				<Button
-					onClick={() => {
-						console.log("post id", props.post.id);
-						setIsEditing(true);
-					}}
-				>
-					Edit
-				</Button>
+				<Button onClick={() => etIsEditing(true)}>Edit</Button>
 			</Card>
 		);
 	}

@@ -22,9 +22,7 @@ const TopPosts = props => {
 			axiosWithAuth()
 				.get("https://how-to-michaelbaynon.herokuapp.com/api/postList")
 				.then(response => {
-					console.log(response.data);
 					dispatch({ type: RETRIEVE_POSTS, payload: response.data });
-					console.log(response);
 				})
 				.catch(error => {
 					console.error("oh no", error);
