@@ -54,14 +54,9 @@ export const reducer = (state = initialState, action) => {
 		case UPDATE_SUCCESS:
 			return {
 				...state,
-				posts: state.posts.map(post => {
-					console.log(
-						"post.id & action.payload.id",
-						post.id,
-						action.payload.id,
-					);
-					return post.id === action.payload.id ? action.payload : post;
-				}),
+				posts: state.posts.map(post =>
+					post.id === action.payload.id ? action.payload : post,
+				),
 				updatingPost: false,
 			};
 		case UPDATE_FAILED:
