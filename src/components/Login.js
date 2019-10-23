@@ -31,7 +31,7 @@ const FormField = styled(Field)`
 const Title = styled.h1`
 	padding: 1px;
 	margin: 1px;
-	color: #5d675b;
+	color: #353238;
 `;
 const Error = styled.p`
 	color: red;
