@@ -7,15 +7,16 @@ import { SEARCH_SUCCESS } from "../actions";
 
 const Search = props => {
 	const dispatch = useDispatch();
-	const [searchTerm, setSearchTerm] = useState();
+	const [searchTerm, setSearchTerm] = useState({
+		searchTerm: "",
+	});
 
 	const handleChange = e => {
 		console.log("searchTerm", searchTerm);
-		setSearchTerm(e.target.value);
+		setSearchTerm({ [e.target.name]: e.target.value });
 		props.filteredPosts.filter(post => {
 			const filter = e.target.value;
 			post.postName.includes(filter);
-			post.description.includes(filter);
 			dispatch({ type: SEARCH_SUCCESS, payload: filter });
 		});
 	};
@@ -30,7 +31,7 @@ const Search = props => {
 			<input
 				type="text"
 				onChange={e => handleChange(e)}
-				value={searchTerm}
+				value={searchTerm.searchTerm}
 				name="searchTerm"
 				placeholder="Search..."
 			/>

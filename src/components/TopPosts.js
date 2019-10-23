@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PostCard from "./PostCard";
 import { connect, useDispatch } from "react-redux";
 import { RETRIEVE_POSTS } from "../actions";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
 import Search from "./Search";
-
 
 const Main = styled.div`
 	display: flex;
@@ -14,9 +13,7 @@ const Main = styled.div`
 	padding-bottom: 20px;
 `;
 
-const Holder = styled.div`
-
-`;
+const Holder = styled.div``;
 
 const TopPosts = props => {
 	const dispatch = useDispatch();
@@ -38,12 +35,12 @@ const TopPosts = props => {
 
 	return (
 		<Holder>
-		<Search />
-		<Main>
-			{props.filteredPosts.map(post => (
-				<PostCard post={post} key={post.id} />
-			))}
-		</Main>
+			<Search />
+			<Main>
+				{props.filteredPosts.map(post => (
+					<PostCard post={post} key={post.id} />
+				))}
+			</Main>
 		</Holder>
 	);
 };
