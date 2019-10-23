@@ -189,7 +189,7 @@ function PostCard(props) {
 						placeholder="Enter Text..."
 					/>
 				</FormBackground2>
-				<Button2 type="submit">Add Post</Button2>
+				<Button2 type="submit">Update Post</Button2>
 			</Form>
 		);
 	} else {
