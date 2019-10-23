@@ -83,7 +83,7 @@ export const reducer = (state = initialState, action) => {
 		case SEARCH_SUCCESS:
 			return {
 				...state,
-				posts: state.posts.filter(post =>
+				filteredPosts: state.filteredPosts.filter(post =>
 					post.postName.includes(action.payload),
 				),
 			};

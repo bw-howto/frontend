@@ -32,7 +32,7 @@ const TopPosts = props => {
 
 	return (
 		<Main>
-			{props.posts.map(post => (
+			{props.filteredPosts.map(post => (
 				<PostCard post={post} key={post.id} />
 			))}
 		</Main>
@@ -41,7 +41,7 @@ const TopPosts = props => {
 
 const mapStateToProps = state => {
 	return {
-		posts: state.posts,
+		filteredPosts: state.filteredPosts,
 	};
 };
 

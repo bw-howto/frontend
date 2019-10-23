@@ -15,6 +15,7 @@ const Search = props => {
 		props.filteredPosts.filter(post => {
 			const filter = e.target.value;
 			post.postName.includes(filter);
+			post.description.includes(filter);
 			dispatch({ type: SEARCH_SUCCESS, payload: filter });
 		});
 	};
