@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { deletePost, updatePost } from "../actions";
 import styled from "styled-components";
+import {TimelineMax, Back, Elastic} from "gsap";
 
 const Card = styled.div`
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -133,6 +134,24 @@ const Button2 = styled.button`
 `;
 
 function PostCard(props) {
+	let cardRef = useRef(null);
+	const [animation2, setAnimation2] = useState(null);
+	const [tl] = useState(new TimelineMax({paused: true}));
+	useEffect(() => {
+		setAnimation2(
+		  tl
+		  .to(cardRef, 0.4, {
+			transformOrigin: "center center",
+			ease: Back.easeIn.config( 1.4),
+			scale: 0.1,
+		  },'s+=0.25')
+		  .to(cardRef, 0.4, {
+			opacity: 0,
+			display: "none"
+		  },'s+=.75'),
+		  );
+	  },[tl]);
+
 	const deletePost = id => {
 		props.deletePost(id);
 	};
@@ -161,6 +180,11 @@ function PostCard(props) {
 	const handleChange = e => {
 		setUpdatedPost({ ...updatedPost, [e.target.name]: e.target.value });
 	};
+
+	const test = props => {	
+	animation2.play()	
+	setTimeout(function() { deletePost(props.post.id) }, 2000);
+	}
 
 	// Create state for isEditing
 	// onClick sets state to true
@@ -194,7 +218,7 @@ function PostCard(props) {
 		);
 	} else {
 		return (
-			<Card>
+			<Card ref={element => {cardRef = element;}}>
 				<Title>{props.post.postName}</Title>
 				<Paragraph>{props.post.description}</Paragraph>
 				<p>
@@ -202,7 +226,7 @@ function PostCard(props) {
 					<span>{window.localStorage.getItem("likes" + props.post.id)}</span>
 				</p>
 				<Button onClick={() => addNumber(props.post.id)}>Like</Button>
-				<Button onClick={() => deletePost(props.post.id)}>Delete</Button>
+				<Button onClick={() =>test(props)}>Delete</Button>
 				<Button onClick={() => setIsEditing(true)}>Edit</Button>
 			</Card>
 		);
